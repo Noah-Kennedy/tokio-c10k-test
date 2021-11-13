@@ -1,0 +1,16 @@
+[package]
+name = "c10k-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[dependencies.c10k-common]
+path = "../c10k-common"
+
+[dependencies.tokio]
+version = "1.13.0"
+features = ["rt", "net", "io-util"]
+
+[target.'cfg(not(target_env = "msvc"))'.dependencies]
+jemallocator = "0.3.2"

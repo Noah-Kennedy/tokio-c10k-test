@@ -1,0 +1,19 @@
+[package]
+name = "c10k-client"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.4"
+
+[dependencies.c10k-common]
+path = "../c10k-common"
+
+[dependencies.tokio]
+version = "1.13.0"
+features = ["rt", "net", "macros", "sync", "time", "rt-multi-thread"]
+
+[target.'cfg(not(target_env = "msvc"))'.dependencies]
+jemallocator = "0.3.2"
